@@ -1,0 +1,3 @@
+# Keep the source bytes identified by the verification transcripts on every platform.
+/RisingSea/** -text
+/PriorPool/** -text

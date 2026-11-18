@@ -1,0 +1,12 @@
+name = "risingSea"
+version = "1.0.0"
+defaultTargets = ["RisingSea"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.19.0"
+
+[[lean_lib]]
+name = "RisingSea"
+moreLeanArgs = ["-DwarningAsError=true"]

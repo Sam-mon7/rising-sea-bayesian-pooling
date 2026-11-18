@@ -1,0 +1,49 @@
+Lean verification of the RisingSea source distribution
+UTC 2026-11-18T15:01:56+00:00
+The package's own modules are built in a separate project directory.
+Only the pinned third-party dependencies and their build cache are shared.
+
+$ lean --version
+Lean (version 4.19.0, x86_64-w64-windows-gnu, commit 6caaee842e94, Release)
+Exit code 0
+
+$ lake --version
+Lake version 5.0.0-6caaee8 (Lean version 4.19.0)
+Exit code 0
+
+$ lake build
+✔ [2248/2255] Built RisingSea.Path
+✔ [2249/2255] Built RisingSea.Link
+✔ [2250/2255] Built RisingSea.Atoms
+✔ [2251/2255] Built RisingSea.WeightedLink
+✔ [2252/2255] Built RisingSea.Weights
+✔ [2253/2255] Built RisingSea.Conditioning
+✔ [2254/2255] Built RisingSea
+Build completed successfully.
+Exit code 0
+
+$ lake env lean -DwarningAsError=true Audit.lean
+RisingSea.exists_interlacing_orderIso depends on [propext, Quot.sound, Classical.choice]
+RisingSea.conditionalForecast_eq_posterior depends on [propext, Quot.sound, Classical.choice]
+RisingSea.path_pool depends on [propext, Quot.sound, Classical.choice]
+RisingSea.all_weights_one_experiment depends on [propext, Quot.sound, Classical.choice]
+RisingSea.binary_pooling_counterexample depends on [propext, Quot.sound, Classical.choice]
+RisingSea.neither_expert_extraneous depends on [propext, Quot.sound, Classical.choice]
+RisingSea.conditional_expectation_counterexample depends on [propext, Quot.sound, Classical.choice]
+RisingSea.example_edge_zero depends on [propext, Quot.sound, Classical.choice]
+Exit code 0
+
+SHA-256 of the checked sources and project configuration
+
+ad1f0722e11a19add28c6edbacc9e1bd480dd78b0892068593ace919f0fce6e5  Audit.lean
+3b03036aea1353673fd6e26491db2686ba3341ffa25acd6bf6ee3115e43141bc  lake-manifest.json
+cf2432f234585bff3267bcde02763e01a253439dcb9b8c3401db6d0f0fcb8bae  lakefile.toml
+55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea  lean-toolchain
+da8ab53cbb1dea323e346a0c78a1263b858a2c7305488d9469834f23b26260fd  README.md
+85b3b5751c88e2f52d06afbcf2f71c39d57f053f35bbaac0efe7fa731811e172  RisingSea/Atoms.lean
+2e6fd283bdc91eae177020a911ff1209874f2b8676ad17fbc17b8fe7f6cb500f  RisingSea/Conditioning.lean
+d707b41cb0c36acd15bd0c69abbc0b0e49cf306d79db2ac6dfd541015af1dfda  RisingSea/Link.lean
+56dc552013826bd2b5ca419b6328b5edce3c455a487ad74d280b15c2536bc504  RisingSea/Path.lean
+1f09e16d2785117bbce70e9175a0309cdb9b4dab4d689fb85b8d72917b61acf7  RisingSea/WeightedLink.lean
+b340364ff7a49529d6e11b315f763e1ad420f866e8f9ce2c76c96013e12a2e07  RisingSea/Weights.lean
+9db6aac52f20e5cbc2c6d1d8ac2a3bc6189bdb1597882751e40b1e559689b7dd  RisingSea.lean

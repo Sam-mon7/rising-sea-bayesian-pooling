@@ -1,0 +1,63 @@
+Lean verification of the PriorPool source distribution
+UTC 2026-11-18T15:50:19+00:00
+Fresh project artifacts. Only pinned third-party dependencies and their build cache are shared.
+
+$ lean --version
+Lean (version 4.19.0, x86_64-w64-windows-gnu, commit 6caaee842e94, Release)
+Exit code 0
+
+$ lake --version
+Lake version 5.0.0-6caaee8 (Lean version 4.19.0)
+Exit code 0
+
+$ lake build
+✔ [2248/2262] Built RisingSea.Path
+✔ [2249/2262] Built PriorPool.Identify
+✔ [2250/2262] Built RisingSea.Link
+✔ [2251/2262] Built RisingSea.Atoms
+✔ [2252/2262] Built PriorPool.Bounded
+✔ [2253/2262] Built PriorPool.Accelerate
+✔ [2254/2262] Built RisingSea.Weights
+✔ [2255/2262] Built PriorPool.KnotScale
+✔ [2256/2262] Built RisingSea.WeightedLink
+✔ [2257/2262] Built PriorPool.PriorMass
+✔ [2258/2262] Built RisingSea.Conditioning
+✔ [2259/2262] Built PriorPool.Symmetric
+✔ [2260/2262] Built RisingSea
+✔ [2261/2262] Built PriorPool
+Build completed successfully.
+Exit code 0
+
+$ lake env lean -DwarningAsError=true PriorAudit.lean
+RisingSea.PriorPool.all_three_positive depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.three_weight_link depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.truth_prior_half depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.exists_interlaced_knot_scale depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.exists_accelerated_vertices depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.pool_coefficients_identifiable depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.bounded_bayesian_pool_rigidity depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.right_endpoint_rigidity depends on [propext, Quot.sound, Classical.choice]
+RisingSea.PriorPool.left_endpoint_rigidity depends on [propext, Quot.sound, Classical.choice]
+Exit code 0
+
+SHA-256 of all checked source and configuration files
+
+c2147eac8203af073f820b50bd5f8dd9eae8a2d219a475f188516d1b0de2e5cf  PriorAudit.lean
+82c36f0a3bd55efe6fab4d7e52ef6594d772d88c66e661d33a52b5a59cf9f275  PriorPool.lean
+c88dda10931dd1365ba98d5dcf07b1b77f336d7f0522dd7dad0e40ab97f214f7  PriorPool/Accelerate.lean
+a6e0a5fe44030ed0f3bd350685eab4583ee1352383f7d6acab63034ad9e3f3fb  PriorPool/Bounded.lean
+74003c871cbe7587ed1b572bca841c6e168813e574e57852860a58fea9cde1be  PriorPool/Identify.lean
+7bff49f8726fe6dfdd88e5b764f6b6879ca27221cf913077a8f80ed34a8bd3fe  PriorPool/KnotScale.lean
+ea9809a3e9e5f239662d852b94026e959013610940840dfa79e3f0098d023f15  PriorPool/PriorMass.lean
+2bc16295d181f2d6a8260eba9ce520eaa2097484bf08322967f0040b8d1f309b  PriorPool/Symmetric.lean
+10b9fc07793b687a01f0a85a14cb55ab45e9581306433a83d3b10020ae51f5c7  README.md
+9db6aac52f20e5cbc2c6d1d8ac2a3bc6189bdb1597882751e40b1e559689b7dd  RisingSea.lean
+85b3b5751c88e2f52d06afbcf2f71c39d57f053f35bbaac0efe7fa731811e172  RisingSea/Atoms.lean
+2e6fd283bdc91eae177020a911ff1209874f2b8676ad17fbc17b8fe7f6cb500f  RisingSea/Conditioning.lean
+d707b41cb0c36acd15bd0c69abbc0b0e49cf306d79db2ac6dfd541015af1dfda  RisingSea/Link.lean
+56dc552013826bd2b5ca419b6328b5edce3c455a487ad74d280b15c2536bc504  RisingSea/Path.lean
+1f09e16d2785117bbce70e9175a0309cdb9b4dab4d689fb85b8d72917b61acf7  RisingSea/WeightedLink.lean
+b340364ff7a49529d6e11b315f763e1ad420f866e8f9ce2c76c96013e12a2e07  RisingSea/Weights.lean
+3b03036aea1353673fd6e26491db2686ba3341ffa25acd6bf6ee3115e43141bc  lake-manifest.json
+1a368a6c9f70145cf1fd9a427e1cf7209087269cbbe6d0632d19f13968840ad8  lakefile.toml
+55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea  lean-toolchain
